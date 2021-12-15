@@ -3,10 +3,13 @@
 	A vanilla JS library for number counting animations.
 
 	var countNums = new CountNums( {
+		container: '',
+		selector: '.counting',
 		delay: 10,
-		time: 2000,
-		opacity: true,
-		onlyOnce: false
+		time: 1000,
+		opacity: false,
+		onlyOnce: false,
+		direction: 'up'
 	} );
 */
 ( function () {
@@ -166,6 +169,8 @@
 	function CountNums( opts ) {
 		// console.groupCollapsed( '~ Constructor ~' );
 		// console.log( "defaultOptions ~>", defaultOptions );
+
+		opts = opts ?? defaultOptions;
 
 		for ( var i = 0; i < opts.length; i++ ) {
 			options = merge( defaultOptions, !!opts[ i ] ? opts[ i ] : defaultOptions );
